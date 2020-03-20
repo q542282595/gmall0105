@@ -1,6 +1,7 @@
 package com.atguigu.gmall.user.controller;
 
-import com.atguigu.gmall.user.bean.UserMember;
+import com.atguigu.gmall.user.bean.UmsMember;
+import com.atguigu.gmall.user.bean.UmsMemberReceiveAddress;
 import com.atguigu.gmall.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,8 +19,13 @@ public class UserController {
         return "hello world";
     }
     @GetMapping("/getAllUser")
-    public List<UserMember> getAllUser()
+    public List<UmsMember> getAllUser()
     {
         return userService.getAllUser();
+    }
+    @GetMapping("/getReceiveAddressByMemberId")
+    public List<UmsMemberReceiveAddress> getReceiveAddressByMemberId(String memberId)
+    {
+        return userService.getReceiveAddressByMemberId(memberId);
     }
 }
